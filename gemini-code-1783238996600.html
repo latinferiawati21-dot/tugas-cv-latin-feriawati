@@ -1,0 +1,413 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Curriculum Vitae - Latin Feriawati</title>
+    <!-- Google Fonts untuk Tipografi Premium -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary-color: #1e3c72;
+            --secondary-color: #2a5298;
+            --accent-color: #2ecc71;
+            --text-dark: #2c3e50;
+            --text-light: #7f8c8d;
+            --bg-body: #f4f7f6;
+            --bg-card: #ffffff;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: var(--bg-body);
+            color: var(--text-dark);
+            line-height: 1.6;
+            padding: 40px 20px;
+        }
+
+        .container {
+            max-width: 950px;
+            margin: 0 auto;
+            background: var(--bg-card);
+            border-radius: 16px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+            overflow: hidden;
+            display: grid;
+            grid-template-columns: 320px 1fr;
+        }
+
+        /* --- SIDEBAR BARAT (Kiri) --- */
+        .sidebar {
+            background: linear-gradient(135deg, var(--primary-color) 0%, var(--secondary-color) 100%);
+            color: #ffffff;
+            padding: 40px 30px;
+            display: flex;
+            flex-direction: column;
+            gap: 35px;
+        }
+
+        .profile-header h1 {
+            font-size: 24px;
+            font-weight: 700;
+            letter-spacing: 0.5px;
+            line-height: 1.2;
+            margin-bottom: 10px;
+        }
+
+        .profile-header p {
+            font-size: 14px;
+            color: #e0e6ed;
+            font-weight: 300;
+        }
+
+        .sidebar-section h3 {
+            font-size: 14px;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            margin-bottom: 15px;
+            color: #a5b4fc;
+            border-bottom: 1px solid rgba(255,255,255,0.15);
+            padding-bottom: 5px;
+        }
+
+        .info-list {
+            list-style: none;
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+            font-size: 13.5px;
+        }
+
+        .info-list li {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .info-list span.label {
+            font-weight: 600;
+            color: #cbd5e1;
+            font-size: 11px;
+            text-transform: uppercase;
+        }
+
+        .btn-contact {
+            display: inline-block;
+            background: var(--accent-color);
+            color: white;
+            text-decoration: none;
+            text-align: center;
+            padding: 12px;
+            border-radius: 8px;
+            font-weight: 600;
+            font-size: 14px;
+            transition: all 0.3s ease;
+            margin-top: 10px;
+            box-shadow: 0 4px 12px rgba(46, 204, 113, 0.3);
+        }
+
+        .btn-contact:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 15px rgba(46, 204, 113, 0.4);
+        }
+
+        /* --- MAIN CONTENT (Kanan) --- */
+        .main-content {
+            padding: 40px 40px;
+            display: flex;
+            flex-direction: column;
+            gap: 35px;
+        }
+
+        .section-title {
+            font-size: 18px;
+            font-weight: 700;
+            color: var(--primary-color);
+            position: relative;
+            padding-bottom: 8px;
+            margin-bottom: 20px;
+            border-bottom: 2px solid #e2e8f0;
+        }
+
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: -2px;
+            left: 0;
+            width: 50px;
+            height: 2px;
+            background-color: var(--accent-color);
+        }
+
+        .about-text {
+            font-size: 14.5px;
+            color: #4a5568;
+            text-align: justify;
+        }
+
+        /* Timeline Desain */
+        .timeline {
+            display: flex;
+            flex-direction: column;
+            gap: 25px;
+            position: relative;
+            border-left: 2px solid #e2e8f0;
+            padding-left: 20px;
+            margin-left: 5px;
+        }
+
+        .timeline-item {
+            position: relative;
+        }
+
+        .timeline-item::before {
+            content: '';
+            position: absolute;
+            left: -27px;
+            top: 5px;
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background: white;
+            border: 2px solid var(--primary-color);
+            transition: all 0.3s ease;
+        }
+
+        .timeline-item:hover::before {
+            background: var(--accent-color);
+            border-color: var(--accent-color);
+        }
+
+        .timeline-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: baseline;
+            margin-bottom: 5px;
+            flex-wrap: wrap;
+        }
+
+        .timeline-title {
+            font-size: 15px;
+            font-weight: 600;
+            color: var(--text-dark);
+        }
+
+        .timeline-date {
+            font-size: 12px;
+            font-weight: 600;
+            color: var(--accent-color);
+            background: #e8f8f0;
+            padding: 2px 10px;
+            border-radius: 20px;
+        }
+
+        .timeline-company {
+            font-size: 13.5px;
+            font-style: italic;
+            color: var(--secondary-color);
+            margin-bottom: 8px;
+            font-weight: 500;
+        }
+
+        .timeline-desc {
+            font-size: 13.5px;
+            color: #4a5568;
+            padding-left: 15px;
+        }
+
+        .timeline-desc li {
+            margin-bottom: 4px;
+        }
+
+        /* Grid untuk Skill */
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 15px;
+        }
+
+        .skill-card {
+            background: #f8fafc;
+            border: 1px solid #e2e8f0;
+            padding: 15px;
+            border-radius: 8px;
+            transition: all 0.3s ease;
+        }
+
+        .skill-card:hover {
+            transform: translateY(-3px);
+            border-color: var(--secondary-color);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.02);
+        }
+
+        .skill-card h4 {
+            font-size: 13.5px;
+            color: var(--primary-color);
+            margin-bottom: 8px;
+            font-weight: 600;
+        }
+
+        .skill-card p {
+            font-size: 12.5px;
+            color: var(--text-light);
+        }
+
+        /* Responsif untuk Smartphone */
+        @media (max-width: 768px) {
+            .container {
+                grid-template-columns: 1fr;
+            }
+            body {
+                padding: 10px;
+            }
+            .main-content {
+                padding: 30px 20px;
+            }
+            .timeline-header {
+                flex-direction: column;
+                gap: 5px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    
+    <!-- Bagian Kiri (Sidebar) -->
+    <aside class="sidebar">
+        <div class="profile-header">
+            <h1>Latin Feriawati</h1>
+            <p>Profesional Komunitas & Bisnis Digital</p>
+        </div>
+
+        <div class="sidebar-section">
+            <h3>Kontak & Biodata</h3>
+            <ul class="info-list">
+                <li>
+                    <span class="label">Email</span>
+                    latinferiawati21@gmail.com
+                </li>
+                <li>
+                    <span class="label">Alamat</span>
+                    Kepanjen, Kabupaten Malang, Jawa Timur
+                </li>
+                <li>
+                    <span class="label">Tempat, Tgl Lahir</span>
+                    Malang, 26 Mei 1989
+                </li>
+            </ul>
+            <a href="mailto:latinferiawati21@gmail.com" class="btn-contact">Kirim Email</a>
+        </div>
+
+        <div class="sidebar-section">
+            <h3>Sertifikasi Utama</h3>
+            <ul class="info-list" style="gap: 15px;">
+                <li>
+                    <span class="label" style="color:#2ecc71;">✓ Terbit: 2023</span>
+                    <strong>Sertifikat Profesi GMP</strong>
+                    <span style="font-size: 12px; color: #cbd5e1; margin-top:2px;">Kementerian Perindustrian & BNSP RI (Standardisasi Pengolahan Pangan)</span>
+                </li>
+            </ul>
+        </div>
+    </aside>
+
+    <!-- Bagian Kanan (Konten Utama) -->
+    <main class="main-content">
+        
+        <section>
+            <h2 class="section-title">Tentang Saya</h2>
+            <p class="about-text">
+                Saya adalah seorang profesional yang berdedikasi tinggi dengan rekam jejak yang variatif, meliputi sektor manufaktur manufaktur skala internasional di Malaysia, manajemen operasional organisasi desa, hingga program pelayanan kesehatan preventif masyarakat[cite: 1]. Menggabungkan landasan akuntansi, pengalaman industri yang kuat, serta studi aktif dalam bidang Bisnis Digital, saya berkomitmen membawa efisiensi kerja yang terukur dan berkontribusi nyata pada kemajuan ekosistem bisnis lokal[cite: 1].
+            </p>
+        </section>
+
+        <section>
+            <h2 class="section-title">Riwayat Pendidikan</h2>
+            <div class="timeline">
+                <div class="timeline-item">
+                    <div class="timeline-header">
+                        <div class="timeline-title">Universitas Kepanjen</div>
+                        <span class="timeline-date">2025 — Sekarang</span>
+                    </div>
+                    <div class="timeline-company">S1 Bisnis Digital (Mahasiswa Aktif)[cite: 1]</div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-header">
+                        <div class="timeline-title">SMK Kepanjen</div>
+                        <span class="timeline-date">Lulus 2007</span>
+                    </div>
+                    <div class="timeline-company">Jurusan Akuntansi[cite: 1]</div>
+                </div>
+            </div>
+        </section>
+
+        <section>
+            <h2 class="section-title">Pengalaman Kerja & Kontribusi</h2>
+            <div class="timeline">
+                <div class="timeline-item">
+                    <div class="timeline-header">
+                        <div class="timeline-title">Pengurus BUMDes "Maju Karya" Mangunrejo</div>
+                        <span class="timeline-date">2021 — Sekarang</span>
+                    </div>
+                    <ul class="timeline-desc">
+                        <li>Mengelola struktur administrasi, tata kelola berkas operasional, dan perancangan unit usaha desa[cite: 1].</li>
+                        <li>Mensinergikan program kemitraan lokal demi mendongkrak ketahanan ekonomi desa[cite: 1].</li>
+                    </ul>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-header">
+                        <div class="timeline-title">Kader Kesehatan Desa</div>
+                        <span class="timeline-date">2019 — Sekarang</span>
+                    </div>
+                    <ul class="timeline-desc">
+                        <li>Bertindak sebagai fasilitator program kesehatan, pencatatan data perkembangan warga, serta penyuluhan preventif berkala[cite: 1].</li>
+                    </ul>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-header">
+                        <div class="timeline-title">MDI Sdn. Bhd., Malaysia</div>
+                        <span class="timeline-date">3 Tahun 6 Bulan</span>
+                    </div>
+                    <div class="timeline-company">Operator Produksi (Komponen Elektronik & Wire)[cite: 1]</div>
+                    <ul class="timeline-desc">
+                        <li>Melakukan proses manufaktur, perakitan kabel kawat (*wire*), dan pengawasan mutu berdasarkan target presisi standar ekspor[cite: 1].</li>
+                    </ul>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-header">
+                        <div class="timeline-title">Sony Sdn. Bhd., Malaysia</div>
+                        <span class="timeline-date">6 Bulan</span>
+                    </div>
+                    <div class="timeline-company">Operator Produksi (Pembuatan Televisi)[cite: 1]</div>
+                    <ul class="timeline-desc">
+                        <li>Bekerja di lini perakitan komponen utama televisi pintar dengan regulasi keselamatan kerja dan efisiensi yang ketat[cite: 1].</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <section>
+            <h2 class="section-title">Keahlian & Kepemimpinan</h2>
+            <div class="skills-grid">
+                <div class="skill-card">
+                    <h4>Keahlian Teknis</h4>
+                    <p>Microsoft Office (Word, Excel, PowerPoint), Pencatatan Akuntansi Dasar, Dasar Strategi Bisnis Digital[cite: 1].</p>
+                </div>
+                <div class="skill-card">
+                    <h4>Organisasi & Kepemimpinan</h4>
+                    <p><strong>Saka Bhayangkara Polsek Kepanjen (2004—2007):</strong> Membentuk disiplin kerja yang kokoh, manajemen koordinasi tim, serta pemahaman aksi sosial kemasyarakatan[cite: 1].</p>
+                </div>
+            </div>
+        </section>
+
+    </main>
+</div>
+
+</body>
+</html>
